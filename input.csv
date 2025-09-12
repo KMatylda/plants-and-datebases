@@ -1,0 +1,26 @@
+﻿Plant,Sowing_From,Sowing_To,Harvest_From,Harvest_To,Notes
+Carrot,4,6,7,10,"Prefers light, sandy soil"
+Tomato,3,3,7,9,Needs support and plenty of sun
+Lettuce,4,8,5,10,Grows best in partial shade
+Radish,3,9,4,10,Grows quickly 
+Cucumber,5,6,7,9,Needs warmth and watering
+Potato,4,5,7,9,Plant sprouting tubers
+Onion,3,4,7,8,Prefers fertile soil
+Green bean,5,6,7,9,"Climbing plant, needs support"
+Pea,3,4,6,7,Prefers cooler months
+Strawberry,4,5,6,7,Grows best in full sun
+Beetroot,4,6,7,10,Suitable for storage
+White cabbage,4,5,8,10,"Needs fertile, moist soil"
+Broccoli,4,5,7,9,Prefers moist soil
+Cauliflower,4,5,7,9,Sensitive to drought
+Pumpkin,5,5,9,10,Heat-loving plant
+Zucchini,5,5,7,9,Fruits abundantly with regular harvest
+Parsley,3,4,7,10,Long germination period
+Celery,4,4,9,10,Requires plenty of water
+Bell pepper,2,3,7,9,Needs warmth and fertilization
+Garlic,10,3,7,8,Prefers sunny locations
+Dill,4,8,5,9,"Best fresh, harvest continuously"
+Basil,4,4,6,9,Heat-loving annual plant
+Chives,3,4,5,10,Can be grown in the same place for several years
+Spinach,3,8,5,10,Grows best in cooler months
+
