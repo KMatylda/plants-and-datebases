@@ -1,4 +1,5 @@
 import sqlite3
+import csv
 
 print("=========================")
 print("         Plants          ")
@@ -34,13 +35,29 @@ elif (choice == '4'):
     connection.commit()
     print("Prepared successfully!")
 elif (choice == '5'):
-    print("TODO")
-    connection.execute("BEGIN")
-    cursor.execute('''
-    INSERT INTO plants (plant, Sowing_From, Sowing_To, Harvest_From, Harvest_To, Notes)
-    VALUES('Carrot', 4, 6, 7, 10, 'Prefers light, sandy soil');
+    file = open('input.csv', mode ='r')
+    rows = csv.reader(file)
+    rows_list = list(rows)
+    for row in rows_list[1:]:
+        # Check if row has no elements
+        if(len(row) == 0):
+            continue
+
+        # Check if row has elements that are empty (like empty strings: '')
+        is_row_empty = False
+        for item in row:
+            if(len(item) == 0):
+                is_row_empty = True     
+        if is_row_empty:
+            continue
+
+        # Insert the values to database
+        connection.execute("BEGIN")
+        cursor.execute(f'''
+        INSERT INTO plants (plant, Sowing_From, Sowing_To, Harvest_From, Harvest_To, Notes)
+        VALUES('{row[0]}', {row[1]}, {row[2]}, {row[3]}, {row[4]}, '{row[5]}');
                    ''')
-    connection.commit()
+        connection.commit()
 elif (choice == '6'):
     print("Dumping...")
     cursor.execute("SELECT * FROM plants")
