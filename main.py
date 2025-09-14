@@ -7,7 +7,7 @@ print("=========================")
 print("Choose what to do?")
 print("1. Search by name")
 print("2. Search by month")
-print("3. Input new flower data")
+print("3. Input new plant data")
 print("4. Prepare database")
 print("5. Populate the database with input.csv")
 print("6. Dump the database")
@@ -25,9 +25,45 @@ if (choice == '1'):
     rows = cursor.fetchall()
     print(rows)
 elif (choice == '2'):
-    print("TODO")
+    print("month to search:", end='')
+    month_to_search = input()
+    cursor.execute(f'''
+                    SELECT * FROM plants
+                    WHERE (Sowing_From  <= "{month_to_search}" AND Sowing_To  >= "{month_to_search}")
+                    ''')
+    rows_sowing = cursor.fetchall()
+    for r in rows_sowing:
+        print(f"{r[0]} sowing")
+
+    cursor.execute(f'''
+                    SELECT * FROM plants
+                    WHERE (Harvest_From  <= "{month_to_search}" AND Harvest_To  >= "{month_to_search}")
+                    ''')
+    
+    rows_harvest = cursor.fetchall()
+    for r in rows_harvest:
+        print(f"{r[0]} harvest")
+
+    
 elif (choice == '3'):
-    print("TODO")
+        print("plant:", end='')
+        p = input()
+        print("Sowing_From:", end='')
+        sf = input()
+        print("Sowing_To:", end='')
+        st = input()
+        print("Harvest_From:", end='')
+        hf = input()
+        print("Harvest_To:", end='')
+        ht = input()
+        print("Notes:", end='')
+        n = input()
+        connection.execute("BEGIN")
+        cursor.execute(f'''
+        INSERT INTO plants (plant, Sowing_From, Sowing_To, Harvest_From, Harvest_To, Notes)
+        VALUES('{p}', {sf}, {st}, {hf}, {ht}, '{n}');
+                   ''')
+        connection.commit()
 elif (choice == '4'):
     print("Preparing...")
     connection.execute("BEGIN")
